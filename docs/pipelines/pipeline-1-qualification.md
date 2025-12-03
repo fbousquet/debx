@@ -46,11 +46,15 @@ INTÉRESSÉ POUR TESTER → GAGNÉ → Pipeline 2
 
 **Actions commerciales :**
 - Qualifier le contact
-- Si source = pharmacien/cadre → identifier le médecin référent
+- Si source = Pharmacien ou Cadre-IDE → identifier le médecin référent
+- Si contact intermédiaire → renseigner le champ "Contact Intermédiaire"
 - Rechercher informations établissement
 
 **Champs obligatoires :**
-- Source Lead
+- Source Lead (avec distinction Direct/Inbound par type de contact)
+
+**Champs recommandés :**
+- Contact Intermédiaire (si entrée via pharmacien/cadre/IDE)
 
 ---
 
@@ -146,15 +150,22 @@ INTÉRESSÉ POUR TESTER → GAGNÉ → Pipeline 2
 - Solution Debrichem
 - Gestion de la douleur
 - Études cliniques
+- Indication de patients pour essai
 
 **Actions commerciales :**
-- Réaliser la formation (Directeur Médical)
+- Réaliser la formation (Directeur Médical via Teams)
 - Répondre aux questions
 - Identifier des patients potentiels pour essai
+- **Définir le protocole douleur** avec le médecin
+- **Demander l'autorisation d'utiliser le protocole douleur dans d'autres centres**
 - Obtenir la décision du médecin
 
 **Champs à mettre à jour :**
 - Statut Formation Théorique = "Réalisée"
+- Protocole Douleur Défini = "Oui" (si défini)
+- Autorisation Multi-Centres = "Accordée" / "Refusée" / "En attente"
+
+> **Point stratégique** : L'autorisation multi-centres pour le protocole douleur est un actif clé permettant de répliquer le protocole dans d'autres établissements sans refaire tout le travail de définition.
 
 **Critères de sortie :**
 - Médecin intéressé pour tester (→ Intéressé)
@@ -216,9 +227,10 @@ INTÉRESSÉ POUR TESTER → GAGNÉ → Pipeline 2
 
 ```
 NOUVEAU LEAD :
-[ ] Source lead renseignée
+[ ] Source lead renseignée (avec distinction Direct/Inbound)
 [ ] Organisation liée
 [ ] Service/spécialité identifié
+[ ] Contact intermédiaire renseigné (si applicable)
 
 QUALIFICATION :
 [ ] Médecin référent identifié
@@ -232,6 +244,8 @@ RDV :
 
 POST-FORMATION :
 [ ] Formation théorique complétée
+[ ] Protocole douleur défini
+[ ] Autorisation multi-centres demandée
 [ ] Intérêt médecin confirmé
 [ ] Pharmacien identifié pour suite
 ```

@@ -6,7 +6,7 @@
 Collecter les retours des équipes soignantes après chaque formation pour améliorer le processus.
 
 ### Déclencheur
-- Champ "Formation IDE" passe à "Réalisée"
+- Champ "Formation IDE Pratique" passe à "Réalisée"
 
 ### Actions
 
@@ -69,28 +69,32 @@ L'équipe Debex-Médical
 
 ---
 
-## A13 - Questionnaire post-essais
+## A13 - Questionnaires post-essais (Multi-destinataires)
 
 ### Objectif
-Collecter les retours des 3 interlocuteurs clés après la phase d'essais pour évaluer le produit.
+Collecter les retours des **3 interlocuteurs clés** après la phase d'essais pour évaluer le produit. Conformément au flowchart commercial, les questionnaires sont envoyés à 3 cibles distinctes.
 
 ### Déclencheur
 - Champ "Statut Essais" passe à "Terminés"
 
+### Destinataires (3 envois distincts)
+
+| Destinataire | Champ Pipedrive | Perspective |
+|--------------|-----------------|-------------|
+| Médecin Référent | Médecin Référent (Personne) | Efficacité clinique, décision prescription |
+| Pharmacien | Pharmacien Principal (Personne) | Logistique, coût, référencement |
+| Cadre de Santé | Cadre de Santé (Personne) | Organisation, satisfaction équipe |
+
 ### Actions
 
-1. **Identifier les 3 contacts clés**
-   - Médecin référent
-   - Pharmacien
-   - Cadre de santé ou IDE référente
+1. **Pour CHAQUE contact clé (Médecin, Pharmacien, Cadre)** :
+   - Générer lien Fillout personnalisé avec `contact_role` en paramètre
+   - Envoyer email avec template adapté au rôle
+   - Logger l'envoi dans les notes du deal
 
-2. **Envoyer email personnalisé à chacun**
-   - Template : "Questionnaire post-essais"
-   - Lien Fillout avec identifiant unique
-
-3. **Créer activité de suivi**
+2. **Créer activité de suivi unique**
    - Type : Tâche
-   - Titre : "Analyser retours essais"
+   - Titre : "Analyser retours essais (3 questionnaires)"
    - Échéance : J+7
 
 ### Template email
@@ -140,14 +144,30 @@ Debex-Médical
 ### Gestion multi-destinataires
 
 ```
-Pour chaque contact (Médecin, Pharmacien, Cadre/IDE) :
-├── Générer lien unique Fillout
-├── Envoyer email personnalisé
-└── Logger envoi dans notes
+POUR CHAQUE destinataire :
+│
+├── Médecin Référent
+│   ├── Lien : fillout.com/form/{id}?deal_id={deal.id}&role=medecin
+│   ├── Template : "Questionnaire Médecin"
+│   └── Focus : Efficacité clinique
+│
+├── Pharmacien Principal
+│   ├── Lien : fillout.com/form/{id}?deal_id={deal.id}&role=pharmacien
+│   ├── Template : "Questionnaire Pharmacien"
+│   └── Focus : Logistique, référencement
+│
+└── Cadre de Santé
+    ├── Lien : fillout.com/form/{id}?deal_id={deal.id}&role=cadre
+    ├── Template : "Questionnaire Cadre"
+    └── Focus : Organisation équipe
+
+→ 3 emails envoyés
+→ 1 note récapitulative dans le deal
+→ 1 activité de suivi créée
 ```
 
 ### Niveau de confiance
-**75% - Assez probable** : Plus complexe (multi-destinataires)
+**75% - Assez probable** : Plus complexe (3 envois distincts, nécessite une boucle ou 3 actions séquentielles dans le workflow)
 
 ---
 

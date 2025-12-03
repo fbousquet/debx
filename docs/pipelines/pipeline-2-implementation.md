@@ -22,10 +22,13 @@ COMMANDE ÉCHANTILLONS
     ├──► Activité formation IDE (A11)
     │
     ▼
-FORMATION IDE PLANIFIÉE
+FORMATION IDE THÉORIQUE PLANIFIÉE
     │
     ▼
-FORMATION IDE RÉALISÉE
+FORMATION IDE THÉORIQUE RÉALISÉE
+    │
+    ▼
+FORMATION IDE PRATIQUE RÉALISÉE
     │
     ├──► Questionnaire satisfaction (A12)
     │
@@ -35,13 +38,15 @@ ESSAIS EN COURS
     ▼
 ESSAIS TERMINÉS
     │
-    ├──► Questionnaires (A13)
+    ├──► Questionnaires (A13) → Médecin, Pharmacien, Cadre
     │
-    ▼
-NÉGOCIATION RÉFÉRENCEMENT
+    ├──► Concluant → NÉGOCIATION RÉFÉRENCEMENT
+    │                    │
+    │                    ├──► Accord → GAGNÉ (Référencé)
+    │                    └──► Refus → PERDU
     │
-    ├──► Concluant → GAGNÉ (Référencé)
-    └──► Non concluant → PERDU
+    └──► Non concluant → Nouvel essai (retour ESSAIS EN COURS)
+                    └──► Abandonné → PERDU
 ```
 
 ---
@@ -144,22 +149,22 @@ NÉGOCIATION RÉFÉRENCEMENT
 
 ---
 
-### 4. Formation IDE Planifiée
+### 4. Formation IDE Théorique Planifiée
 
 | Attribut | Valeur |
 |----------|--------|
 | Probabilité | 55% |
-| Objectif | Organiser la formation des équipes soignantes |
+| Objectif | Organiser la formation théorique des équipes soignantes |
 
 **Critères d'entrée :**
 - Échantillons livrés
 - Cadre de santé contacté
 
 **Actions commerciales :**
-- Contacter le cadre de santé
-- Définir date et lieu de formation
-- Identifier IDE référente et backup
-- Préparer le matériel de formation
+- Contacter le cadre de santé (RDV Cadre)
+- Organiser la formation : Date, Lieu, Produit
+- Identifier IDE Référente + IDE Backup DEBRICHEM
+- Définir les modalités de la session de formation
 
 **Interlocuteurs clés :**
 - Cadre de santé
@@ -168,51 +173,83 @@ NÉGOCIATION RÉFÉRENCEMENT
 
 **Checklist planification :**
 ```
+[ ] RDV Cadre effectué
 [ ] Date formation confirmée
 [ ] Lieu identifié (salle, service)
 [ ] IDE référente identifiée
 [ ] IDE backup identifiée
-[ ] Créneaux validés avec le service
+[ ] Modalités de session définies
 ```
 
 **Champs à renseigner :**
-- Formation IDE = "Planifiée"
+- Formation IDE Théorique = "Planifiée"
+- Date Formation IDE
+- Lieu Formation IDE
 - Contacts Cadre/IDE liés au deal
 
 **Critères de sortie :**
-- Formation planifiée et confirmée
+- Formation théorique planifiée et confirmée
 
 ---
 
-### 5. Formation IDE Réalisée
+### 5. Formation IDE Théorique Réalisée
+
+| Attribut | Valeur |
+|----------|--------|
+| Probabilité | 60% |
+| Objectif | Former les équipes sur les aspects théoriques |
+
+**Critères d'entrée :**
+- Formation théorique planifiée
+- Date atteinte
+
+**Contenu formation théorique IDE :**
+- Protocole douleur
+- Protocole DEBRICHEM
+- Identification des patients éligibles
+
+**Actions commerciales :**
+- Réaliser la formation théorique avec les IDE
+- Valider la compréhension du protocole
+- Planifier la formation pratique
+
+**Champs à renseigner :**
+- Formation IDE Théorique = "Réalisée"
+
+**Critères de sortie :**
+- IDE ont compris les protocoles
+- Prêts pour la formation pratique
+
+---
+
+### 6. Formation IDE Pratique Réalisée
 
 | Attribut | Valeur |
 |----------|--------|
 | Probabilité | 65% |
-| Objectif | Former les équipes à l'utilisation de Debrichem |
+| Objectif | Former les équipes à l'utilisation pratique de Debrichem |
 
 **Critères d'entrée :**
-- Formation planifiée
-- Date atteinte
+- Formation théorique réalisée
+- Échantillons disponibles dans le service
 
 **Contenu formation pratique :**
-- Rappel des indications
-- Technique d'application
+- Technique d'application sur cas réels
 - Protocole de suivi patient
 - Gestion des effets
-- Questions/réponses
+- Questions/réponses pratiques
 
 **Actions commerciales :**
-- Réaliser la formation
+- Réaliser la formation pratique avec le produit
 - Remettre les protocoles écrits
 - Identifier les premiers patients pour essai
 - Recueillir les premiers retours
 
 **Automatisations actives :**
-- A12 : Envoi questionnaire satisfaction formation
+- A12 : Envoi questionnaire satisfaction formation (aux IDE Référente + Backup)
 
 **Champs à renseigner :**
-- Formation IDE = "Réalisée"
+- Formation IDE Pratique = "Réalisée"
 
 **Livrables formation :**
 - Protocole utilisation remis
@@ -225,7 +262,7 @@ NÉGOCIATION RÉFÉRENCEMENT
 
 ---
 
-### 6. Essais en Cours
+### 7. Essais en Cours
 
 | Attribut | Valeur |
 |----------|--------|
@@ -255,7 +292,7 @@ NÉGOCIATION RÉFÉRENCEMENT
 
 ---
 
-### 7. Essais Terminés
+### 8. Essais Terminés
 
 | Attribut | Valeur |
 |----------|--------|
@@ -269,13 +306,17 @@ NÉGOCIATION RÉFÉRENCEMENT
 - Collecter les retours médecin
 - Collecter les retours équipe soignante
 - Analyser les résultats
+- Envoyer questionnaires satisfaction
 
 **Automatisations actives :**
-- A13 : Envoi questionnaires satisfaction (Médecin, Pharmacien, Cadre/IDE)
+- A13 : Envoi questionnaires satisfaction à **3 destinataires** :
+  - Médecin référent
+  - Pharmacien
+  - Cadre de santé
 
 **Champs à renseigner :**
 - Statut Essais = "Terminés"
-- (Après analyse) = "Concluants" ou "Non concluants"
+- Résultat Essais = "Concluant" / "Non concluant - Nouvel essai" / "Non concluant - Abandonné"
 
 **Questions clés :**
 - Efficacité observée ?
@@ -284,12 +325,15 @@ NÉGOCIATION RÉFÉRENCEMENT
 - Intention de continuer ?
 
 **Critères de sortie :**
-- Essais concluants → Négociation
-- Essais non concluants → Analyse causes, décision
+- Résultat = "Concluant" → Négociation Référencement
+- Résultat = "Non concluant - Nouvel essai" → Retour à "Essais en Cours" (nouvelle tentative)
+- Résultat = "Non concluant - Abandonné" → Perdu
+
+> **Note** : La possibilité de refaire un essai permet de gérer les cas où les premiers essais n'ont pas été optimaux (mauvais patients, problème d'application, etc.) sans perdre tout le travail accompli.
 
 ---
 
-### 8. Négociation Référencement
+### 9. Négociation Référencement
 
 | Attribut | Valeur |
 |----------|--------|
@@ -318,7 +362,7 @@ NÉGOCIATION RÉFÉRENCEMENT
 
 ---
 
-### 9. Gagné - Référencé
+### 10. Gagné - Référencé
 
 | Attribut | Valeur |
 |----------|--------|
@@ -342,11 +386,13 @@ NÉGOCIATION RÉFÉRENCEMENT
 | Raison | Description |
 |--------|-------------|
 | Validation pharma refusée | Pharmacien n'approuve pas le produit |
-| Essais non concluants | Résultats insuffisants sur les patients |
+| Essais non concluants - Abandonné | Résultats insuffisants, pas de nouvelle tentative |
 | Budget non alloué | Établissement n'a pas les moyens |
 | Changement d'interlocuteur | Le médecin référent part, successeur pas intéressé |
 | Concurrent sélectionné | Un autre produit a été choisi |
 | Délai trop long | Le processus a traîné, intérêt perdu |
+
+> **Note** : "Essais non concluants" ne mène pas forcément à "Perdu". Si le champ "Résultat Essais" = "Non concluant - Nouvel essai", le deal peut revenir à l'étape "Essais en Cours".
 
 ---
 
@@ -356,7 +402,8 @@ NÉGOCIATION RÉFÉRENCEMENT
 |-------|------------------------|
 | Validation Pharma | Pharmacien hospitalier |
 | Commande/Livraison | Pharmacien + Laphal |
-| Formation IDE | Cadre de santé + IDE |
+| Formation IDE Théorique | Cadre de santé + IDE |
+| Formation IDE Pratique | IDE Référente + IDE Backup |
 | Essais | Médecin + IDE référente |
 | Négociation | Pharmacien + Direction |
 
@@ -368,7 +415,8 @@ NÉGOCIATION RÉFÉRENCEMENT
 |-------|------------|-------------|
 | Validation Pharma | 5-10 jours | 10 jours (A9) |
 | Commande → Livraison | 3-7 jours | 10 jours |
-| Planification formation | 5-10 jours | 14 jours |
+| Formation IDE Théorique | 5-10 jours | 14 jours |
+| Formation IDE Pratique | 3-7 jours | 10 jours |
 | Essais | 2-4 semaines | Variable |
 | Négociation | 1-2 semaines | 3 semaines |
 
@@ -387,16 +435,23 @@ COMMANDE :
 [ ] Commande Laphal envoyée (ou A10)
 [ ] Suivi livraison planifié
 
-FORMATION :
-[ ] Cadre contacté
-[ ] Date confirmée
+FORMATION THÉORIQUE :
+[ ] RDV Cadre effectué
+[ ] Date et lieu confirmés
 [ ] IDE référente identifiée
-[ ] Matériel préparé
+[ ] IDE backup identifiée
+[ ] Formation théorique réalisée
+
+FORMATION PRATIQUE :
+[ ] Échantillons dans le service
+[ ] Formation pratique réalisée
+[ ] Protocoles remis
 
 ESSAIS :
 [ ] Patients identifiés
 [ ] Suivi en cours
 [ ] Retours collectés
+[ ] Résultat évalué (Concluant / Non concluant)
 
 RÉFÉRENCEMENT :
 [ ] Proposition envoyée

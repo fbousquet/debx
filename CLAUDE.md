@@ -44,12 +44,13 @@ Objectif : Du "oui pour tester" jusqu'à la 1ère commande
 1. Validation Pharmaceutique
 2. Commande Échantillons
 3. Échantillons Livrés
-4. Formation IDE Planifiée
-5. Formation IDE Réalisée
-6. Essais en Cours
-7. Essais Terminés
-8. Négociation Référencement
-9. Gagné - Référencé / Perdu
+4. Formation IDE Théorique Planifiée
+5. Formation IDE Théorique Réalisée
+6. Formation IDE Pratique Réalisée
+7. Essais en Cours
+8. Essais Terminés (→ Concluant / Non concluant - Nouvel essai / Abandonné)
+9. Négociation Référencement
+10. Gagné - Référencé / Perdu
 
 **Pipeline 3 (optionnel) : Prescription Active**
 Suivi post-référencement
@@ -66,6 +67,7 @@ Suivi post-référencement
   - Cadre de Santé
   - IDE Référente
   - IDE Backup
+  - Contact Intermédiaire (qui a donné le contact du médecin)
 - **Participants** = Tous les autres (autres médecins, autres IDE, direction...)
 
 ## Documentation projet
@@ -96,20 +98,29 @@ docs/
 ## Cycle de vente Debex
 
 ```
-Phase 0: Prospection
+Phase 0: Prospection (multi-canaux)
+    - Via Médecins (Direct / Inbound)
+    - Via Pharmaciens (Direct / Inbound) → réorientation médecin
+    - Via Cadres/IDE (Direct / Inbound) → réorientation médecin
     ↓
 Phase 1: Convaincre médecin de tester
     - 1er contact → Formation théorique → Intérêt
+    - Définition protocole douleur + autorisation multi-centres
     ↓
 Phase 2: Validation & Préparation
     - Dossier pharmaceutique → Commande échantillons Laphal
-    - Formation équipes IDE (théorique + pratique)
+    - Formation IDE théorique (protocoles)
+    - Formation IDE pratique (avec produit)
     ↓
 Phase 3: Essais patients
-    - Patients identifiés → Essais → Questionnaires satisfaction
+    - Patients identifiés → Essais → Questionnaires satisfaction (3 destinataires)
+    - Si non concluant → possibilité nouvel essai
     ↓
 Phase 4: Référencement
     - Négociation → 1ère commande
+    ↓
+Phase 5: Prescription active (Pipeline 3)
+    - Faire prescrire (Médecins, IDE, Pharmaciens)
 ```
 
 ## Fournisseur échantillons
@@ -135,3 +146,26 @@ Phase 4: Référencement
 ### Tags contacts
 - Rôle : Médecin Référent / Pharmacien / Cadre / IDE Référente / IDE Backup
 - Spécialité : Néphro / Réa / Autre
+
+## Champs stratégiques ajoutés (suite analyse flowchart)
+
+### Source Lead (granularité accrue)
+- Médecin Direct / Médecin Inbound
+- Pharmacien Direct / Pharmacien Inbound
+- Cadre-IDE Direct / Cadre-IDE Inbound
+
+### Protocole Douleur
+- `Protocole Douleur Défini` : Non / En cours / Oui
+- `Autorisation Multi-Centres` : Non demandée / En attente / Accordée / Refusée
+
+> L'autorisation multi-centres permet de répliquer le protocole douleur dans d'autres établissements.
+
+### Formation IDE (2 phases)
+- `Formation IDE Théorique` : Non planifiée / Planifiée / Réalisée
+- `Formation IDE Pratique` : Non planifiée / Planifiée / Réalisée
+- `Date Formation IDE` / `Lieu Formation IDE`
+
+### Résultat Essais (avec reboucle)
+- `Résultat Essais` : Non évalué / Concluant / Non concluant - Nouvel essai / Non concluant - Abandonné
+
+> Si "Non concluant - Nouvel essai", le deal peut revenir à l'étape "Essais en Cours".

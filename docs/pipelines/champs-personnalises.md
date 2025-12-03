@@ -6,8 +6,11 @@
 
 | Champ | Type | Options | Obligatoire | Pipeline |
 |-------|------|---------|-------------|----------|
-| Source Lead | Dropdown | Direct Médecin / Via Pharmacien / Via Cadre-IDE / Inbound | Oui (création) | P1 + P2 |
+| Source Lead | Dropdown | Médecin Direct / Médecin Inbound / Pharmacien Direct / Pharmacien Inbound / Cadre-IDE Direct / Cadre-IDE Inbound | Oui (création) | P1 + P2 |
 | Spécialité Service | Dropdown | Néphro / Réa / Autre | Oui | P1 + P2 |
+| Contact Intermédiaire | Lien Personne | - | Non | P1 |
+
+> **Note** : Le champ "Contact Intermédiaire" permet de tracer qui a donné le contact du médecin référent (pharmacien, cadre ou IDE ayant fait la mise en relation).
 
 ### Champs de suivi Pipeline 1
 
@@ -15,6 +18,10 @@
 |-------|------|---------|-------------|-------|
 | Statut Formation Théorique | Dropdown | Non planifiée / Planifiée / Réalisée | - | Mis à jour manuellement |
 | Lien RDV Directeur Médical | Texte (URL) | - | Avant "Formation réalisée" | Lien Teams/Calendly |
+| Protocole Douleur Défini | Dropdown | Non / En cours / Oui | - | Défini lors du RDV Directeur Médical |
+| Autorisation Multi-Centres | Dropdown | Non demandée / En attente / Accordée / Refusée | - | Autorisation d'utiliser le protocole douleur dans d'autres centres |
+
+> **Note Protocole Douleur** : Le protocole douleur est un élément stratégique défini lors du RDV entre le Directeur Médical Debex et le médecin référent. L'obtention de l'autorisation multi-centres permet de répliquer ce protocole dans d'autres établissements.
 
 ### Champs de suivi Pipeline 2
 
@@ -23,9 +30,19 @@
 | Statut Validation Pharma | Dropdown | En attente / Validé / Refusé | - | Déclenche A10 si "Validé" |
 | Date Commande Échantillons | Date | - | - | Rempli auto par A10 |
 | Statut Échantillons | Dropdown | Commandés / Expédiés / Livrés | - | Déclenche A11 si "Livrés" |
-| Formation IDE | Dropdown | Non planifiée / Planifiée / Réalisée | - | Déclenche A12 si "Réalisée" |
-| Statut Essais | Dropdown | Non démarrés / En cours / Terminés / Concluants / Non concluants | - | Déclenche A13 si "Terminés" |
+| Formation IDE Théorique | Dropdown | Non planifiée / Planifiée / Réalisée | - | Formation théorique (protocole, indications) |
+| Formation IDE Pratique | Dropdown | Non planifiée / Planifiée / Réalisée | - | Formation pratique avec produit. Déclenche A12 si "Réalisée" |
+| Date Formation IDE | Date | - | - | Date prévue ou réalisée |
+| Lieu Formation IDE | Texte | - | - | Salle ou service de formation |
+| Statut Essais | Dropdown | Non démarrés / En cours / Terminés | - | Déclenche A13 si "Terminés" |
+| Résultat Essais | Dropdown | Non évalué / Concluant / Non concluant - Nouvel essai / Non concluant - Abandonné | - | Permet de relancer un nouvel essai si non concluant |
 | Questionnaire Satisfaction Envoyé | Dropdown | Oui / Non | - | Mis à jour auto |
+
+> **Note Formation IDE** : Le PDF commercial distingue clairement 2 phases de formation IDE :
+> 1. **Théorique** : Protocole Debrichem, protocole douleur, identification des patients
+> 2. **Pratique** : Formation avec le produit, cas réels
+>
+> **Note Résultat Essais** : Si "Non concluant - Nouvel essai", le deal peut revenir à l'étape "Essais en cours" pour une nouvelle tentative.
 
 ### Champs de liaison
 
@@ -139,11 +156,15 @@ DEAL : CHU Lyon - Néphrologie - Dr Dupont
 
 ### Source Lead
 ```
-- Direct Médecin     → Contact initial avec un médecin
-- Via Pharmacien     → Entrée par le pharmacien hospitalier
-- Via Cadre-IDE      → Entrée par le cadre de santé ou IDE
-- Inbound           → Demande entrante (site web, salon, etc.)
+- Médecin Direct       → Contact direct avec un médecin (prospection terrain)
+- Médecin Inbound      → Médecin entrant (site web, salon, recommandation)
+- Pharmacien Direct    → Contact direct avec pharmacien hospitalier
+- Pharmacien Inbound   → Pharmacien entrant (demande info, salon)
+- Cadre-IDE Direct     → Contact direct avec cadre de santé ou IDE
+- Cadre-IDE Inbound    → Cadre/IDE entrant (demande info, recommandation)
 ```
+
+> Cette granularité permet d'analyser les performances par canal d'acquisition ET par type de contact initial.
 
 ### Spécialité Service
 ```
@@ -207,9 +228,12 @@ DEAL : CHU Lyon - Néphrologie - Dr Dupont
 | Validation Pharmaceutique | Champ "Pharmacien Principal" renseigné |
 | Commande Échantillons | Statut Validation Pharma = "Validé" |
 | Échantillons Livrés | Date Commande Échantillons renseignée |
-| Formation IDE Planifiée | Champ "Cadre de Santé" renseigné |
-| Formation IDE Réalisée | Formation IDE ≠ "Non planifiée", Champ "IDE Référente" renseigné |
-| Essais Terminés | Statut Essais ≠ "Non démarrés" |
+| Formation IDE Théorique Planifiée | Champ "Cadre de Santé" renseigné |
+| Formation IDE Théorique Réalisée | Formation IDE Théorique = "Planifiée", Champ "IDE Référente" renseigné |
+| Formation IDE Pratique Réalisée | Formation IDE Théorique = "Réalisée", Formation IDE Pratique ≠ "Non planifiée" |
+| Essais en Cours | Formation IDE Pratique = "Réalisée" |
+| Essais Terminés | Statut Essais = "En cours" |
+| Négociation Référencement | Résultat Essais = "Concluant" |
 
 ---
 
@@ -221,8 +245,9 @@ DEAL : CHU Lyon - Néphrologie - Dr Dupont
 |-------|--------------------------|
 | Statut Validation Pharma = "Validé" | A10 - Commande Laphal |
 | Statut Échantillons = "Livrés" | A11 - Activité formation |
-| Formation IDE = "Réalisée" | A12 - Questionnaire |
-| Statut Essais = "Terminés" | A13 - Questionnaires |
+| Formation IDE Pratique = "Réalisée" | A12 - Questionnaire post-formation |
+| Statut Essais = "Terminés" | A13 - Questionnaires post-essais (Médecin, Pharmacien, Cadre) |
+| Résultat Essais = "Non concluant - Nouvel essai" | Retour à étape "Essais en Cours" |
 
 ### Champs mis à jour automatiquement
 
