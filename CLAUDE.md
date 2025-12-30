@@ -14,85 +14,140 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Réanimation (reanimation)
 
 ### Équipe
-- 3 commerciaux terrain
+- 3 commerciaux terrain (Yann, Ben, William)
 - 1 directeur médical (RDV avec médecins référents via Teams)
 
 ### Stack technique
-- **CRM** : Pipedrive
-- **Suite bureautique** : Office 365
+- **CRM** : Pipedrive (CRM réglementaire + Module Projets)
+- **Suite bureautique** : Office 365 (optimisation en cours)
 - **Documents** : Word (devis, dossiers pharma)
 - **Questionnaires** : Fillout
 - **Emailing** : Pipedrive natif
 - **RDV** : Microsoft Teams (lien envoyé via Pipedrive)
+- **Serveur** : Hostinger VPS (~10€/mois) - Ubuntu
+- **Automatisations** : N8N (self-hosted, gratuit)
+- **Base de données** : PostgreSQL sur serveur Hostinger (migration depuis Supabase)
 
-## Architecture CRM
+## Architecture CRM (v2 - Décision 30/12/2024)
 
-### Pipelines Pipedrive
+> **PIVOT MAJEUR** : Séparation claire entre CRM réglementaire (suivi des contacts) et Gestion de Projet (suivi des établissements)
 
-**Pipeline 1 : Qualification Médecin**
-Objectif : Amener le médecin référent à accepter de tester
-1. Nouveau Lead
-2. Recherche Médecin Référent
-3. 1er Contact Médecin
-4. RDV Planifié
-5. Formation Théorique Réalisée
-6. Intéressé pour Tester → Pipeline 2
-7. Perdu
+### Principe fondamental
 
-**Pipeline 2 : Implémentation & Référencement**
-Objectif : Du "oui pour tester" jusqu'à la 1ère commande
-1. Validation Pharmaceutique
-2. Commande Échantillons
-3. Échantillons Livrés
-4. Formation IDE Théorique Planifiée
-5. Formation IDE Théorique Réalisée
-6. Formation IDE Pratique Réalisée
-7. Essais en Cours
-8. Essais Terminés (→ Concluant / Non concluant - Nouvel essai / Abandonné)
-9. Négociation Référencement
-10. Gagné - Référencé / Perdu
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    ARCHITECTURE DEBEX v2                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   CRM PIPEDRIVE                    MODULE PROJETS PIPEDRIVE     │
+│   (Suivi réglementaire)            (Gestion par établissement)  │
+│                                                                 │
+│   • Qui on a vu                    • 1 projet = 1 établissement │
+│   • Quand (date + matin/PM)        • Étapes standardisées       │
+│   • Comment (repas, face-face...)  • Modèles par typologie      │
+│   • Conformité E32/E34/E35         • Suivi temporel             │
+│   • Qualifications contacts        • Affectation ressources     │
+│                                                                 │
+│         ↓                                    ↓                  │
+│   OBLIGATION RÉGLEMENTAIRE         PILOTAGE OPÉRATIONNEL        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-**Pipeline 3 (optionnel) : Prescription Active**
-Suivi post-référencement
+### 1. CRM Réglementaire (Suivi des Personnes)
 
-### Structure multi-contacts par deal
+**Objectif** : Conformité réglementaire - tracer tous les contacts avec les professionnels de santé
 
-**Contrainte Pipedrive** : 1 contact principal + participants illimités
+**Données obligatoires par contact** :
+- Qui : Nom, prénom, établissement, service, RPPS
+- Quand : Date + matin/après-midi
+- Comment : Type de relation (voir ci-dessous)
+- Consentements : E32 (contact), E34 (établissement), E35
 
-**Solution Debex** :
-- **Contact principal** = Médecin Référent (décisionnaire unique)
-- **Champs Personne** (filtrables dans rapports) :
-  - Médecin Référent
-  - Pharmacien Principal
-  - Cadre de Santé
-  - IDE Référente
-  - IDE Backup
-  - Contact Intermédiaire (qui a donné le contact du médecin)
-- **Participants** = Tous les autres (autres médecins, autres IDE, direction...)
+**Types de relations (activités)** :
+- Repas (max 2/an/personne - alerte automatique)
+- Face-face (présentiel)
+- Vidéo (Teams)
+- Téléphone
+- Congrès
+- Webinar
+
+**Qualifications des contacts** :
+| Qualification | Fréquence de visite |
+|--------------|---------------------|
+| Utilisateur régulier | 1x / mois |
+| Décideur | 1x / trimestre |
+| KOL | 1x / 6 mois |
+
+> La fréquence la plus soutenue l'emporte (ex: utilisateur régulier + décideur = 1x/mois)
+
+**Champs additionnels sur les Personnes** :
+- Réseau (liens vers autres médecins)
+- Société savante
+- Études cliniques (fichiers)
+- Étiologie/spécialité
+
+### 2. Module Projets (Suivi des Établissements)
+
+**Objectif** : Piloter l'implémentation du produit par établissement
+
+**Structure** : 1 Projet = 1 Établissement (pas une personne)
+
+**Étapes du projet** :
+```
+PROSPECT → LEAD → ESSAIS → GO/NO-GO → RÉFÉRENCEMENT → DÉPLOIEMENT
+    │        │       │         │            │              │
+    │        │       │         │            │              └─ Par service (S1, S2...)
+    │        │       │         │            └─ Pharmacie valide
+    │        │       │         └─ Décision essais
+    │        │       └─ Tests produit
+    │        └─ Intérêt confirmé
+    └─ Contact initial
+```
+
+**Modèles de projets** (à créer) :
+- Centre prioritaire (CHU, gros volume)
+- Centre standard (CH, clinique)
+- Petit centre (EHPAD, clinique petite)
+
+**Groupement possible** :
+- Par groupe hospitalier (APHP, APHM, HCL...)
+- Par GHT
+- Par région
+
+### 3. Liens CRM ↔ Projets
+
+- Chaque contact CRM peut être lié à un projet
+- Une activité dans le CRM alimente automatiquement le projet correspondant
+- Le projet référence tous les contacts impliqués (décideurs, opérateurs, pharmaciens...)
+
+### Ancienne architecture (obsolète)
+
+~~**Pipeline 1 : Qualification Médecin**~~ → Remplacé par Module Projets
+~~**Pipeline 2 : Implémentation & Référencement**~~ → Intégré dans Module Projets
+**Pipeline 3 : Prescription Active** → À évaluer ultérieurement
 
 ## Documentation projet
 
 ```
 docs/
+├── architecture-v2/
+│   ├── overview.md              # Nouvelle architecture CRM + Projets
+│   ├── crm-reglementaire.md     # CRM simplifié (conformité)
+│   ├── module-projets.md        # Gestion de projet par établissement
+│   ├── tableaux-de-bord.md      # KPIs et dashboards
+│   └── infrastructure.md        # Serveur, N8N, base de données
 ├── roadmap/
-│   ├── overview.md          # Vue macro du projet
-│   ├── semaine-1.md         # Fondations
-│   ├── semaine-2.md         # Quick wins automatisations
-│   ├── semaine-3.md         # Workflow documents
-│   └── semaine-4.md         # Continuité & satisfaction
-├── pipelines/
-│   ├── pipeline-1-qualification.md
-│   ├── pipeline-2-implementation.md
-│   └── champs-personnalises.md
+│   ├── overview.md              # Vue macro du projet (mise à jour)
+│   ├── atelier-2-janvier.md     # Plan atelier configuration Projets
+│   └── archive/                 # Anciennes semaines (obsolètes)
+├── pipelines/                   # OBSOLÈTE - voir architecture-v2
+│   └── (fichiers archivés)
 ├── automatisations/
-│   ├── index.md             # Liste des 19 automatisations
-│   ├── relances.md          # A4, A5, A9, A14
-│   ├── workflows.md         # A6, A7, A11
-│   ├── documents.md         # A8, A10
-│   ├── questionnaires.md    # A12, A13, A19
-│   └── data-quality.md      # A1, A2, A3, A16, A17
+│   ├── index.md                 # Liste des automatisations (à réviser)
+│   └── ...
 └── specifications/
-    └── client-pieces.md     # Spécifications fonctionnelles futures
+    └── client-pieces.md
 ```
 
 ## Cycle de vente Debex
@@ -126,46 +181,106 @@ Phase 5: Prescription active (Pipeline 3)
 ## Fournisseur échantillons
 **Laphal** : Commande échantillons via email pré-formaté
 
-## Priorités automatisations (TOP 5)
-1. A4 - Séquence relance post 1er contact
-2. A5 - Alerte deal stagne +7j
-3. A17 - Champs obligatoires avant progression
-4. A8 - Envoi auto dossier pharma
-5. A7 - Création auto deal Pipeline 2
+## Priorités (mise à jour 30/12/2024)
+
+### Immédiat (Atelier 2 janvier)
+1. **Configuration Module Projets** - Créer le premier modèle de projet
+2. **Simplification CRM** - Réduire aux champs réglementaires obligatoires
+3. **Lien CRM ↔ Projets** - Comprendre l'intégration native Pipedrive
+
+### Infrastructure (Fabien)
+1. Installation serveur Hostinger (Ubuntu)
+2. Déploiement N8N
+3. Migration base de données depuis Supabase
+4. Interface recherche soignants
+
+### Automatisations (à réviser selon nouvelle architecture)
+- Alerte repas > 2/an/personne (réglementaire)
+- Alerte contact non vu selon fréquence qualification
+- Extraction transparence (déclarations repas)
+
+## Tableaux de bord requis
+
+### CRM (conformité)
+| Métrique | Description |
+|----------|-------------|
+| Contacts par commercial | Nombre de personnes vues par période |
+| Couverture cibles | % de contacts vus dans les délais (selon qualification) |
+| Alerte retard | Contacts en retard de visite |
+
+### Projets (opérationnel)
+| Métrique | Description |
+|----------|-------------|
+| Temps passé par établissement | Durée cumulée des activités |
+| CA par établissement | Chiffre d'affaires réel |
+| Avancement projets | Position dans le cycle par établissement |
+| ROI | CA / temps investi |
 
 ## Conventions de nommage
 
-### Deals
-`[Établissement] - [Service] - [Médecin référent]`
+### Projets
+`[Groupe] - [Établissement]` ou `[Établissement]` si pas de groupe
 
-### Activités
-- `Appel - [Objet]`
-- `RDV - [Type] - [Interlocuteur]`
-- `Email - [Objet]`
+Exemples :
+- `APHP - Pitié-Salpêtrière`
+- `APHM - Conception`
+- `CHU Brest`
+
+### Activités (CRM)
+- `Repas - [Interlocuteur] - [Lieu]`
+- `Face-face - [Interlocuteur]`
+- `Vidéo - [Interlocuteur]`
+- `Congrès - [Nom congrès]`
+- `Webinar - [Sujet]`
 
 ### Tags contacts
-- Rôle : Médecin Référent / Pharmacien / Cadre / IDE Référente / IDE Backup
+- Qualification : Utilisateur régulier / Décideur / KOL
+- Rôle : Médecin / Pharmacien / Cadre / IDE
 - Spécialité : Néphro / Réa / Autre
 
-## Champs stratégiques ajoutés (suite analyse flowchart)
+## Champs sur les Personnes (CRM)
 
-### Source Lead (granularité accrue)
-- Médecin Direct / Médecin Inbound
-- Pharmacien Direct / Pharmacien Inbound
-- Cadre-IDE Direct / Cadre-IDE Inbound
+### Identification
+- Nom, Prénom
+- RPPS
+- Établissement (lien Organisation)
+- Service
+- Spécialité
 
-### Protocole Douleur
-- `Protocole Douleur Défini` : Non / En cours / Oui
-- `Autorisation Multi-Centres` : Non demandée / En attente / Accordée / Refusée
+### Qualification
+- Type : Utilisateur régulier / Décideur / KOL
+- Fréquence visite : Auto-calculée selon type
+
+### Réglementaire
+- E32 : Consentement contact (Oui/Non/Date)
+- E34 : Politique établissement (Oui/Non)
+- E35 : Autre
+
+### Réseau
+- Réseau : Liens vers autres Personnes
+- Société savante : Texte libre
+- Études cliniques : Fichiers attachés
+
+## Champs sur les Projets (Module Projets)
+
+### Identification
+- Groupe hospitalier (APHP, APHM, HCL, etc.)
+- Établissement
+- Région
+
+### Suivi
+- Étape actuelle : Prospect / Lead / Essais / Go-NoGo / Référencement / Déploiement
+- Date début
+- Services concernés (S1, S2...)
+
+### Contacts clés (liens Personnes)
+- Décideur principal
+- Opérateurs référents
+- Pharmacien
+- IDE référente
+
+### Protocole
+- Protocole Douleur Défini : Non / En cours / Oui
+- Autorisation Multi-Centres : Non demandée / En attente / Accordée / Refusée
 
 > L'autorisation multi-centres permet de répliquer le protocole douleur dans d'autres établissements.
-
-### Formation IDE (2 phases)
-- `Formation IDE Théorique` : Non planifiée / Planifiée / Réalisée
-- `Formation IDE Pratique` : Non planifiée / Planifiée / Réalisée
-- `Date Formation IDE` / `Lieu Formation IDE`
-
-### Résultat Essais (avec reboucle)
-- `Résultat Essais` : Non évalué / Concluant / Non concluant - Nouvel essai / Non concluant - Abandonné
-
-> Si "Non concluant - Nouvel essai", le deal peut revenir à l'étape "Essais en Cours".

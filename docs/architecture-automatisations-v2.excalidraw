@@ -1,0 +1,828 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "claude-code",
+  "elements": [
+    {
+      "id": "title",
+      "type": "text",
+      "x": 600,
+      "y": 20,
+      "width": 800,
+      "height": 50,
+      "text": "DEBEX - ARCHITECTURE v2 & AUTOMATISATIONS",
+      "fontSize": 40,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "strokeColor": "#1e1e1e"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "x": 600,
+      "y": 75,
+      "width": 700,
+      "height": 30,
+      "text": "CRM Reglementaire + Module Projets + Infrastructure N8N",
+      "fontSize": 22,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "strokeColor": "#868e96"
+    },
+    {
+      "id": "date",
+      "type": "text",
+      "x": 600,
+      "y": 105,
+      "width": 300,
+      "height": 20,
+      "text": "Version 2.0 - 30 decembre 2024",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "strokeColor": "#adb5bd"
+    },
+
+    {
+      "id": "section1-title",
+      "type": "text",
+      "x": 50,
+      "y": 160,
+      "width": 500,
+      "height": 35,
+      "text": "1. ARCHITECTURE GLOBALE",
+      "fontSize": 28,
+      "fontFamily": 1,
+      "strokeColor": "#1971c2"
+    },
+
+    {
+      "id": "crm-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 210,
+      "width": 450,
+      "height": 320,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "crm-header",
+      "type": "text",
+      "x": 60,
+      "y": 220,
+      "width": 430,
+      "height": 35,
+      "text": "CRM PIPEDRIVE",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#2f9e44"
+    },
+    {
+      "id": "crm-subtitle",
+      "type": "text",
+      "x": 60,
+      "y": 255,
+      "width": 430,
+      "height": 25,
+      "text": "Suivi Reglementaire (par Personne)",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#37b24d"
+    },
+    {
+      "id": "crm-content",
+      "type": "text",
+      "x": 60,
+      "y": 290,
+      "width": 430,
+      "height": 230,
+      "text": "PERSONNES (Contacts)\n------------------------\n- Identification: Nom, RPPS, Service\n- Qualification: Utilisateur / Decideur / KOL\n- Consentements: E32, E34, E35\n- Reseau: liens vers autres medecins\n\nACTIVITES (Interactions)\n------------------------\n- Repas (max 2/an/personne)\n- Face-face | Video | Telephone\n- Congres | Webinar\n\nOBLIGATION: Tracer QUI, QUAND, COMMENT",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "projets-box",
+      "type": "rectangle",
+      "x": 550,
+      "y": 210,
+      "width": 450,
+      "height": 320,
+      "strokeColor": "#1971c2",
+      "backgroundColor": "#e7f5ff",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "projets-header",
+      "type": "text",
+      "x": 560,
+      "y": 220,
+      "width": 430,
+      "height": 35,
+      "text": "MODULE PROJETS",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#1971c2"
+    },
+    {
+      "id": "projets-subtitle",
+      "type": "text",
+      "x": 560,
+      "y": 255,
+      "width": 430,
+      "height": 25,
+      "text": "Pilotage Commercial (par Etablissement)",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1c7ed6"
+    },
+    {
+      "id": "projets-content",
+      "type": "text",
+      "x": 560,
+      "y": 290,
+      "width": 430,
+      "height": 230,
+      "text": "1 PROJET = 1 ETABLISSEMENT\n---------------------------\nPROSPECT --> LEAD --> ESSAIS\n    |         |         |\n    v         v         v\nGO/NO-GO --> REFERENCEMENT --> DEPLOIEMENT\n\nCHAMPS PROJET\n---------------------------\n- Groupe hospitalier (APHP, APHM...)\n- Region | Code FINESS | Nb lits\n- CA potentiel / CA reel\n- Contacts cles (liens CRM)\n- Protocole douleur | Autorisation multi-centres",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "arrow-crm-projets",
+      "type": "text",
+      "x": 500,
+      "y": 350,
+      "width": 50,
+      "height": 40,
+      "text": "<-->",
+      "fontSize": 32,
+      "fontFamily": 1,
+      "strokeColor": "#495057"
+    },
+    {
+      "id": "lien-text",
+      "type": "text",
+      "x": 475,
+      "y": 395,
+      "width": 100,
+      "height": 20,
+      "text": "Liens bidirectionnels",
+      "fontSize": 11,
+      "fontFamily": 1,
+      "strokeColor": "#868e96"
+    },
+
+    {
+      "id": "infra-box",
+      "type": "rectangle",
+      "x": 1050,
+      "y": 210,
+      "width": 400,
+      "height": 320,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "infra-header",
+      "type": "text",
+      "x": 1060,
+      "y": 220,
+      "width": 380,
+      "height": 35,
+      "text": "INFRASTRUCTURE",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#9c36b5"
+    },
+    {
+      "id": "infra-subtitle",
+      "type": "text",
+      "x": 1060,
+      "y": 255,
+      "width": 380,
+      "height": 25,
+      "text": "Serveur Hostinger VPS (~10E/mois)",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#ae3ec9"
+    },
+    {
+      "id": "infra-content",
+      "type": "text",
+      "x": 1060,
+      "y": 290,
+      "width": 380,
+      "height": 230,
+      "text": "SERVEUR UBUNTU 24.04\n---------------------------\n+-- N8N (Docker)\n|   Automatisations avancees\n|   Webhooks Pipedrive\n|\n+-- PostgreSQL\n|   Base soignants (migration Supabase)\n|   250k+ contacts medicaux\n|\n+-- Interface Web\n|   Recherche soignants\n|   Import vers CRM (1 clic)\n|\n+-- Nginx (Reverse Proxy + SSL)\n    n8n.debx.fr | app.debx.fr",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "section2-title",
+      "type": "text",
+      "x": 50,
+      "y": 570,
+      "width": 600,
+      "height": 35,
+      "text": "2. AUTOMATISATIONS - ARCHITECTURE v2",
+      "fontSize": 28,
+      "fontFamily": 1,
+      "strokeColor": "#e67700"
+    },
+
+    {
+      "id": "auto-cat1-title",
+      "type": "text",
+      "x": 50,
+      "y": 620,
+      "width": 400,
+      "height": 28,
+      "text": "CRM - Conformite Reglementaire",
+      "fontSize": 22,
+      "fontFamily": 1,
+      "strokeColor": "#2f9e44"
+    },
+
+    {
+      "id": "auto-repas-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 660,
+      "width": 350,
+      "height": 130,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "auto-repas-text",
+      "type": "text",
+      "x": 60,
+      "y": 670,
+      "width": 330,
+      "height": 110,
+      "text": "ALERTE REPAS > 2/AN  [N8N]\n---------------------------\nDeclencheur: Activite \"Repas\" creee\n\nActions:\n  1. Query PostgreSQL: count repas/contact/an\n  2. Si >= 2: Notification commerciaux\n  3. Blocage suggestion 3eme repas",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "auto-retard-box",
+      "type": "rectangle",
+      "x": 420,
+      "y": 660,
+      "width": 350,
+      "height": 130,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "auto-retard-text",
+      "type": "text",
+      "x": 430,
+      "y": 670,
+      "width": 330,
+      "height": 110,
+      "text": "ALERTE RETARD VISITE  [N8N]\n---------------------------\nDeclencheur: Cron quotidien 8h\n\nLogique:\n  - Utilisateur regulier: 1x/mois\n  - Decideur: 1x/trimestre\n  - KOL: 1x/6 mois\n\nAction: Email recapitulatif par commercial",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "auto-transparence-box",
+      "type": "rectangle",
+      "x": 790,
+      "y": 660,
+      "width": 350,
+      "height": 130,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "auto-transparence-text",
+      "type": "text",
+      "x": 800,
+      "y": 670,
+      "width": 330,
+      "height": 110,
+      "text": "EXPORT TRANSPARENCE  [N8N]\n---------------------------\nDeclencheur: Cron 1er du mois\n\nActions:\n  1. Query activites \"Repas\" mois M-1\n  2. Formater pour declaration legale\n  3. Generer CSV\n  4. Email + sauvegarde Drive",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "auto-cat2-title",
+      "type": "text",
+      "x": 50,
+      "y": 820,
+      "width": 450,
+      "height": 28,
+      "text": "MODULE PROJETS - Workflow Commercial",
+      "fontSize": 22,
+      "fontFamily": 1,
+      "strokeColor": "#1971c2"
+    },
+
+    {
+      "id": "auto-prospect-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 860,
+      "width": 280,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "auto-prospect-text",
+      "type": "text",
+      "x": 60,
+      "y": 870,
+      "width": 260,
+      "height": 130,
+      "text": "PHASE PROSPECT [Pipedrive]\n-------------------------\nAuto-creation taches:\n  - Identifier decideur\n  - Recherche etablissement\n  - Premier contact\n\nAlerte: Inactivite > 14j",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "auto-lead-box",
+      "type": "rectangle",
+      "x": 350,
+      "y": 860,
+      "width": 280,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "auto-lead-text",
+      "type": "text",
+      "x": 360,
+      "y": 870,
+      "width": 260,
+      "height": 130,
+      "text": "PHASE LEAD [Pipedrive]\n-------------------------\nAuto-creation taches:\n  - RDV formation theorique\n  - Definir protocole douleur\n  - Autorisation multi-centres\n\nNotif: \"Medecin OK\" -> Equipe",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "auto-essais-box",
+      "type": "rectangle",
+      "x": 650,
+      "y": 860,
+      "width": 280,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "auto-essais-text",
+      "type": "text",
+      "x": 660,
+      "y": 870,
+      "width": 260,
+      "height": 130,
+      "text": "PHASE ESSAIS [Pipedrive]\n-------------------------\nSequence auto:\n  1. Dossier pharma -> email\n  2. Alerte si validation >10j\n  3. Commande Laphal (email)\n  4. Formation IDE -> tache\n  5. Questionnaires Fillout",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "auto-ref-box",
+      "type": "rectangle",
+      "x": 950,
+      "y": 860,
+      "width": 280,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "auto-ref-text",
+      "type": "text",
+      "x": 960,
+      "y": 870,
+      "width": 260,
+      "height": 130,
+      "text": "REFERENCEMENT [Pipedrive]\n-------------------------\nAuto-creation taches:\n  - Negociation conditions\n  - Premiere commande\n\nSucces -> Notification equipe\n       -> Passage DEPLOIEMENT",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "arrow-phases",
+      "type": "text",
+      "x": 50,
+      "y": 1020,
+      "width": 1180,
+      "height": 25,
+      "text": "PROSPECT ---------> LEAD ---------> ESSAIS ---------> GO/NO-GO ---------> REFERENCEMENT ---------> DEPLOIEMENT",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1971c2"
+    },
+
+    {
+      "id": "section3-title",
+      "type": "text",
+      "x": 50,
+      "y": 1070,
+      "width": 500,
+      "height": 35,
+      "text": "3. WORKFLOWS N8N - DETAIL",
+      "fontSize": 28,
+      "fontFamily": 1,
+      "strokeColor": "#9c36b5"
+    },
+
+    {
+      "id": "n8n-w1-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1120,
+      "width": 350,
+      "height": 180,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "n8n-w1-text",
+      "type": "text",
+      "x": 60,
+      "y": 1130,
+      "width": 330,
+      "height": 160,
+      "text": "W1: ALERTE REPAS\n===========================\n\n[Webhook Pipedrive]\n        |\n        v\n[Condition: Type = Repas]\n        |\n        v\n[PostgreSQL: COUNT repas/an]\n        |\n        v\n[Si >= 2: Email notification]",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "n8n-w2-box",
+      "type": "rectangle",
+      "x": 420,
+      "y": 1120,
+      "width": 350,
+      "height": 180,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "n8n-w2-text",
+      "type": "text",
+      "x": 430,
+      "y": 1130,
+      "width": 330,
+      "height": 160,
+      "text": "W2: RETARD VISITE\n===========================\n\n[Cron: Quotidien 8h]\n        |\n        v\n[API Pipedrive: Get contacts]\n        |\n        v\n[Pour chaque: Check derniere visite]\n        |\n        v\n[Si retard: Ajouter a liste]\n        |\n        v\n[Email recap par commercial]",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "n8n-w3-box",
+      "type": "rectangle",
+      "x": 790,
+      "y": 1120,
+      "width": 350,
+      "height": 180,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "n8n-w3-text",
+      "type": "text",
+      "x": 800,
+      "y": 1130,
+      "width": 330,
+      "height": 160,
+      "text": "W3: EXPORT TRANSPARENCE\n===========================\n\n[Cron: 1er du mois 6h]\n        |\n        v\n[API Pipedrive: Activites Repas M-1]\n        |\n        v\n[Formatter donnees declaration]\n        |\n        v\n[Generer CSV]\n        |\n        v\n[Email + Save Google Drive]",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "n8n-w4-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1320,
+      "width": 350,
+      "height": 180,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "n8n-w4-text",
+      "type": "text",
+      "x": 60,
+      "y": 1330,
+      "width": 330,
+      "height": 160,
+      "text": "W4: IMPORT SOIGNANT -> CRM\n===========================\n\n[Webhook: Interface web]\n        |\n        v\n[PostgreSQL: Get soignant by ID]\n        |\n        v\n[API Pipedrive: Create/Update]\n        |\n        v\n[Reponse: Success/Error]",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "n8n-w5-box",
+      "type": "rectangle",
+      "x": 420,
+      "y": 1320,
+      "width": 350,
+      "height": 180,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "n8n-w5-text",
+      "type": "text",
+      "x": 430,
+      "y": 1330,
+      "width": 330,
+      "height": 160,
+      "text": "W5: SYNC PROJETS <-> CRM\n===========================\n\n[Webhook: Activite CRM creee]\n        |\n        v\n[Get contact + Get linked project]\n        |\n        v\n[Si projet lie: Update timeline]\n        |\n        v\n[Log activite dans projet]",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "n8n-w6-box",
+      "type": "rectangle",
+      "x": 790,
+      "y": 1320,
+      "width": 350,
+      "height": 180,
+      "strokeColor": "#9c36b5",
+      "backgroundColor": "#f8f0fc",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "n8n-w6-text",
+      "type": "text",
+      "x": 800,
+      "y": 1330,
+      "width": 330,
+      "height": 160,
+      "text": "W6: FILLOUT -> PIPEDRIVE\n===========================\n\n[Webhook: Fillout submission]\n        |\n        v\n[Extract: deal_id, scores, comments]\n        |\n        v\n[API Pipedrive: Update deal fields]\n        |\n        v\n[Si score < 3: Alerte commercial]",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "section4-title",
+      "type": "text",
+      "x": 50,
+      "y": 1530,
+      "width": 600,
+      "height": 35,
+      "text": "4. AUTOMATISATIONS PIPEDRIVE NATIVES",
+      "fontSize": 28,
+      "fontFamily": 1,
+      "strokeColor": "#2f9e44"
+    },
+
+    {
+      "id": "pipedrive-auto-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1580,
+      "width": 1090,
+      "height": 220,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "pipedrive-auto-text",
+      "type": "text",
+      "x": 60,
+      "y": 1590,
+      "width": 1070,
+      "height": 200,
+      "text": "AUTOMATISATIONS NATIVES PIPEDRIVE (Workflow Automation)\n===========================================================================================================\n\n| ID  | Declencheur                           | Actions                                    | Priorite |\n|-----|---------------------------------------|-------------------------------------------|----------|\n| P1  | Projet entre phase LEAD               | Creer taches: RDV formation, Protocole    | ***      |\n| P2  | Projet entre phase ESSAIS             | Creer taches: Dossier pharma, Formations  | ***      |\n| P3  | Tache \"Validation Pharma\" creee       | Email pharmacien avec lien dossier        | **       |\n| P4  | Champ \"Validation Pharma\" = OK        | Email Laphal (commande echantillons)      | **       |\n| P5  | Projet entre phase GO/NO-GO           | Notification equipe + tache evaluation    | **       |\n| P6  | Projet marque GAGNE                   | Notification celebration + KPIs update    | *        |\n| P7  | Projet sans activite > 14j            | Alerte stagnation au commercial           | ***      |\n| P8  | Activite \"Formation\" completee        | Envoyer questionnaire Fillout             | **       |",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "section5-title",
+      "type": "text",
+      "x": 50,
+      "y": 1830,
+      "width": 400,
+      "height": 35,
+      "text": "5. INFRASTRUCTURE SETUP",
+      "fontSize": 28,
+      "fontFamily": 1,
+      "strokeColor": "#c92a2a"
+    },
+
+    {
+      "id": "setup-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1880,
+      "width": 550,
+      "height": 280,
+      "strokeColor": "#c92a2a",
+      "backgroundColor": "#ffe3e3",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "setup-text",
+      "type": "text",
+      "x": 60,
+      "y": 1890,
+      "width": 530,
+      "height": 260,
+      "text": "INSTALLATION SERVEUR HOSTINGER\n=======================================\n\nJOUR 1: Base\n  [x] Acces SSH configure (cle privee)\n  [x] Utilisateur debx (sudo)\n  [ ] UFW active (ssh, http, https)\n  [ ] Docker installe\n\nJOUR 2: Services\n  [ ] PostgreSQL (docker)\n  [ ] N8N (docker, port 5678)\n  [ ] Nginx reverse proxy\n  [ ] SSL Let's Encrypt\n\nJOUR 3: Donnees\n  [ ] Migration Supabase -> PostgreSQL\n  [ ] Test connexion N8N <-> PostgreSQL\n  [ ] Import test soignants",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "dns-box",
+      "type": "rectangle",
+      "x": 620,
+      "y": 1880,
+      "width": 280,
+      "height": 280,
+      "strokeColor": "#1971c2",
+      "backgroundColor": "#e7f5ff",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "dns-text",
+      "type": "text",
+      "x": 630,
+      "y": 1890,
+      "width": 260,
+      "height": 260,
+      "text": "DOMAINES & SSL\n==================\n\nn8n.debx.fr\n  -> localhost:5678\n  -> N8N interface\n\napp.debx.fr\n  -> localhost:3000\n  -> Interface recherche\n\napi.debx.fr\n  -> localhost:3001\n  -> API backend\n\nSSL: Let's Encrypt\nRenouvellement: Auto (certbot)",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "costs-box",
+      "type": "rectangle",
+      "x": 920,
+      "y": 1880,
+      "width": 280,
+      "height": 280,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "costs-text",
+      "type": "text",
+      "x": 930,
+      "y": 1890,
+      "width": 260,
+      "height": 260,
+      "text": "COUTS MENSUELS\n==================\n\nPipedrive Pro       171 EUR\n  (4 users + Projets)\n\nHostinger VPS        10 EUR\n  (N8N + PostgreSQL)\n\nFillout               0 EUR\n  (tier gratuit)\n\nMicrosoft 365       155 EUR\n  (optimise)\n\n--------------------------\nTOTAL              ~336 EUR\n\nEconomie vs avant: +21 EUR",
+      "fontSize": 13,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "legend-title",
+      "type": "text",
+      "x": 50,
+      "y": 2190,
+      "width": 200,
+      "height": 30,
+      "text": "LEGENDE",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e"
+    },
+    {
+      "id": "legend-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 2230,
+      "width": 1150,
+      "height": 100,
+      "strokeColor": "#868e96",
+      "backgroundColor": "#f8f9fa",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "legend-text",
+      "type": "text",
+      "x": 60,
+      "y": 2240,
+      "width": 1130,
+      "height": 80,
+      "text": "COULEURS:  Vert = Pipedrive natif  |  Bleu = Module Projets  |  Violet = N8N/Infrastructure  |  Rouge = Setup/Action requise\n\nOUTILS:    [Pipedrive] = Workflow Automation natif  |  [N8N] = Workflow sur serveur Hostinger  |  [Fillout] = Questionnaires externes\n\nPRIORITES: *** = Critique (Semaine 1)  |  ** = Important (Semaine 2)  |  * = Nice-to-have (Semaine 3+)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "next-steps-title",
+      "type": "text",
+      "x": 50,
+      "y": 2360,
+      "width": 300,
+      "height": 30,
+      "text": "PROCHAINES ETAPES",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#e67700"
+    },
+    {
+      "id": "next-steps-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 2400,
+      "width": 1150,
+      "height": 140,
+      "strokeColor": "#e67700",
+      "backgroundColor": "#fff9db",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "next-steps-text",
+      "type": "text",
+      "x": 60,
+      "y": 2410,
+      "width": 1130,
+      "height": 120,
+      "text": "ATELIER 2 JANVIER 2025\n========================\n1. Configuration Module Projets - Creer le premier modele de projet (Centre Prioritaire)\n2. Simplification CRM - Reduire aux champs reglementaires obligatoires (E32, E34, E35, RPPS)\n3. Lien CRM <-> Projets - Tester l'integration native Pipedrive\n4. Premiere automatisation - Notification \"Medecin OK\" (P1)\n\nINFRASTRUCTURE (Fabien)\n========================\nInstallation serveur Hostinger -> N8N -> PostgreSQL -> Migration Supabase -> Interface recherche soignants",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  }
+}

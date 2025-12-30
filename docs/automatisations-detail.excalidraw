@@ -1,0 +1,663 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "claude-code",
+  "elements": [
+    {
+      "id": "title",
+      "type": "text",
+      "x": 400,
+      "y": 20,
+      "width": 600,
+      "height": 45,
+      "text": "DEBEX - DÉTAIL DES AUTOMATISATIONS",
+      "fontSize": 36,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "strokeColor": "#1e1e1e"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "x": 400,
+      "y": 70,
+      "width": 500,
+      "height": 25,
+      "text": "19 automatisations - Inputs, Outputs & Faisabilité Pipedrive",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "strokeColor": "#868e96"
+    },
+
+    {
+      "id": "cat1-title",
+      "type": "text",
+      "x": 50,
+      "y": 120,
+      "width": 300,
+      "height": 30,
+      "text": "DATA QUALITY (5)",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#e67700"
+    },
+
+    {
+      "id": "a1-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 160,
+      "width": 400,
+      "height": 120,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a1-text",
+      "type": "text",
+      "x": 60,
+      "y": 165,
+      "width": 380,
+      "height": 110,
+      "text": "A1 - Distribution Leads ✅ 95%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Nouveau deal créé\n⬆ OUTPUT: Commercial assigné (par région)\n\n💡 Natif Pipedrive - Conditions par région",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a2-box",
+      "type": "rectangle",
+      "x": 470,
+      "y": 160,
+      "width": 400,
+      "height": 120,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a2-text",
+      "type": "text",
+      "x": 480,
+      "y": 165,
+      "width": 380,
+      "height": 110,
+      "text": "A2 - Enrichissement Contact ✅ 90%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Contact créé\n⬆ OUTPUT: Champs auto-complétés (spécialité)\n\n💡 Natif - Mapping basé sur organisation",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a3-box",
+      "type": "rectangle",
+      "x": 890,
+      "y": 160,
+      "width": 400,
+      "height": 120,
+      "strokeColor": "#fab005",
+      "backgroundColor": "#fff9db",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a3-text",
+      "type": "text",
+      "x": 900,
+      "y": 165,
+      "width": 380,
+      "height": 110,
+      "text": "A3 - Normalisation Organisation ⚠️ 70%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Organisation créée\n⬆ OUTPUT: Nom formaté (majuscules, etc.)\n\n⚠️ Via ZAPIER - Formatter by Zapier requis",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a16-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 300,
+      "width": 400,
+      "height": 120,
+      "strokeColor": "#fab005",
+      "backgroundColor": "#fff9db",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a16-text",
+      "type": "text",
+      "x": 60,
+      "y": 305,
+      "width": 380,
+      "height": 110,
+      "text": "A16 - Vérification Doublons ⚠️ 60%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Avant création contact\n⬆ OUTPUT: Alerte si doublon détecté\n\n⚠️ Natif limité - Suggestion merge seulement",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a17-box",
+      "type": "rectangle",
+      "x": 470,
+      "y": 300,
+      "width": 400,
+      "height": 120,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a17-text",
+      "type": "text",
+      "x": 480,
+      "y": 305,
+      "width": 380,
+      "height": 110,
+      "text": "A17 - Champs Obligatoires ✅ 90% ⭐\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Avant progression étape\n⬆ OUTPUT: Blocage + liste champs manquants\n\n⚠️ PLAN PRO requis - Contournable via API",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "cat2-title",
+      "type": "text",
+      "x": 50,
+      "y": 460,
+      "width": 350,
+      "height": 30,
+      "text": "RELANCES & ALERTES (4)",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#c92a2a"
+    },
+
+    {
+      "id": "a4-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 500,
+      "width": 400,
+      "height": 140,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a4-text",
+      "type": "text",
+      "x": 60,
+      "y": 505,
+      "width": 380,
+      "height": 130,
+      "text": "A4 - Séquence Relance ✅ 95% ⭐⭐\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal à \"1er Contact\" sans réponse\n⬆ OUTPUT:\n   • J+3: Email relance 1\n   • J+7: Email relance 2\n\n💡 Natif - Delay + Check reply + Send email",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a5-box",
+      "type": "rectangle",
+      "x": 470,
+      "y": 500,
+      "width": 400,
+      "height": 140,
+      "strokeColor": "#fab005",
+      "backgroundColor": "#fff9db",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a5-text",
+      "type": "text",
+      "x": 480,
+      "y": 505,
+      "width": 380,
+      "height": 130,
+      "text": "A5 - Alerte Stagnation ⚠️ 75% ⭐⭐\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal stagne > 7 jours\n⬆ OUTPUT:\n   • Notification commercial\n   • Email manager (optionnel)\n\n⚠️ WORKAROUND: Rotting ≠ trigger auto",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a9-box",
+      "type": "rectangle",
+      "x": 890,
+      "y": 500,
+      "width": 400,
+      "height": 140,
+      "strokeColor": "#fab005",
+      "backgroundColor": "#fff9db",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a9-text",
+      "type": "text",
+      "x": 900,
+      "y": 505,
+      "width": 380,
+      "height": 130,
+      "text": "A9 - Alerte Validation Pharma ⚠️ 75%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal \"Validation Pharma\" > 10j\n⬆ OUTPUT:\n   • Alerte urgente commercial\n   • Notification manager\n\n⚠️ WORKAROUND: Créer activité J+10 auto",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a14-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 660,
+      "width": 400,
+      "height": 140,
+      "strokeColor": "#fab005",
+      "backgroundColor": "#fff9db",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a14-text",
+      "type": "text",
+      "x": 60,
+      "y": 665,
+      "width": 380,
+      "height": 130,
+      "text": "A14 - Relance Questionnaires ⚠️ 70%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Questionnaire envoyé sans réponse 7j\n⬆ OUTPUT:\n   • Email relance \"2 min suffisent\"\n   • Max 1 relance par contact\n\n⚠️ Dépend de A19 pour savoir si répondu",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "cat3-title",
+      "type": "text",
+      "x": 50,
+      "y": 840,
+      "width": 300,
+      "height": 30,
+      "text": "WORKFLOWS (4)",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#1971c2"
+    },
+
+    {
+      "id": "a6-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 880,
+      "width": 400,
+      "height": 130,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a6-text",
+      "type": "text",
+      "x": 60,
+      "y": 885,
+      "width": 380,
+      "height": 120,
+      "text": "A6 - Notification \"Médecin OK\" ✅ 100%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal passe à \"Intéressé pour tester\"\n⬆ OUTPUT:\n   • Email équipe commerciale\n   • Note de célébration\n\n💡 Natif Pipedrive - Simple et fiable",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a7-box",
+      "type": "rectangle",
+      "x": 470,
+      "y": 880,
+      "width": 400,
+      "height": 130,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a7-text",
+      "type": "text",
+      "x": 480,
+      "y": 885,
+      "width": 380,
+      "height": 120,
+      "text": "A7 - Création Deal Pipeline 2 ✅ 95% ⭐\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal Pipeline 1 marqué \"Gagné\"\n⬆ OUTPUT:\n   • Nouveau deal Pipeline 2 créé\n   • Données copiées automatiquement\n\n💡 Natif - Variables pour copier les champs",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a11-box",
+      "type": "rectangle",
+      "x": 890,
+      "y": 880,
+      "width": 400,
+      "height": 130,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a11-text",
+      "type": "text",
+      "x": 900,
+      "y": 885,
+      "width": 380,
+      "height": 120,
+      "text": "A11 - Activité Formation IDE ✅ 100%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal à \"Échantillons Livrés\"\n⬆ OUTPUT:\n   • Tâche \"Contacter cadre pour formation\"\n   • Échéance J+3\n\n💡 Natif Pipedrive - Simple et fiable",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a18-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1030,
+      "width": 400,
+      "height": 120,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a18-text",
+      "type": "text",
+      "x": 60,
+      "y": 1035,
+      "width": 380,
+      "height": 110,
+      "text": "A18 - Historique Modifications ✅ 85%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Champ critique modifié\n⬆ OUTPUT: Note auto avec ancien→nouveau\n\n💡 Natif - 1 automation par champ surveillé",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "cat4-title",
+      "type": "text",
+      "x": 50,
+      "y": 1190,
+      "width": 300,
+      "height": 30,
+      "text": "DOCUMENTS (2)",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#2f9e44"
+    },
+
+    {
+      "id": "a8-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1230,
+      "width": 400,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a8-text",
+      "type": "text",
+      "x": 60,
+      "y": 1235,
+      "width": 380,
+      "height": 140,
+      "text": "A8 - Envoi Dossier Pharma ✅ 90% ⭐\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal à \"Validation Pharma\"\n⬆ OUTPUT:\n   • Email au pharmacien\n   • Lien vers dossier (SharePoint/Drive)\n   • MAJ: Statut Validation = \"En attente\"\n\n⚠️ PJ dynamiques non supportées → Lien",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a10-box",
+      "type": "rectangle",
+      "x": 470,
+      "y": 1230,
+      "width": 400,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a10-text",
+      "type": "text",
+      "x": 480,
+      "y": 1235,
+      "width": 380,
+      "height": 140,
+      "text": "A10 - Commande Laphal ✅ 90%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Deal à \"Commande Échantillons\"\n⬆ OUTPUT:\n   • Email pré-formaté à Laphal\n   • Contenu: Établissement, Pharmacien,\n     Réfs produits, Médecin demandeur\n\n💡 Natif - Variables {org.name}, {person}...",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "cat5-title",
+      "type": "text",
+      "x": 50,
+      "y": 1420,
+      "width": 350,
+      "height": 30,
+      "text": "SATISFACTION (4)",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#9c36b5"
+    },
+
+    {
+      "id": "a12-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1460,
+      "width": 400,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a12-text",
+      "type": "text",
+      "x": 60,
+      "y": 1465,
+      "width": 380,
+      "height": 140,
+      "text": "A12 - Questionnaire Post-Formation ✅ 90%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Formation IDE Pratique = \"Réalisée\"\n⬆ OUTPUT:\n   • Email avec lien Fillout\n   • Dest: IDE Référente + IDE Backup\n   • Tâche suivi J+7\n\n💡 Natif - URL Fillout avec ?deal_id={id}",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a13-box",
+      "type": "rectangle",
+      "x": 470,
+      "y": 1460,
+      "width": 400,
+      "height": 150,
+      "strokeColor": "#2f9e44",
+      "backgroundColor": "#ebfbee",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a13-text",
+      "type": "text",
+      "x": 480,
+      "y": 1465,
+      "width": 380,
+      "height": 140,
+      "text": "A13 - Questionnaires Post-Essais ✅ 85%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Statut Essais = \"Terminés\"\n⬆ OUTPUT: 3 emails Fillout distincts:\n   • Médecin Référent (efficacité clinique)\n   • Pharmacien (logistique/coût)\n   • Cadre de Santé (organisation)\n\n💡 Natif - 3 actions email séquentielles",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "a19-box",
+      "type": "rectangle",
+      "x": 890,
+      "y": 1460,
+      "width": 400,
+      "height": 150,
+      "strokeColor": "#1971c2",
+      "backgroundColor": "#e7f5ff",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "a19-text",
+      "type": "text",
+      "x": 900,
+      "y": 1465,
+      "width": 380,
+      "height": 140,
+      "text": "A19 - Webhook Fillout → Pipedrive 🔌 95%\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⬇ INPUT: Réponse soumise dans Fillout\n⬆ OUTPUT:\n   • MAJ Score satisfaction deal\n   • Note avec résumé réponses\n   • Alerte si score < 3/5\n\n🔌 Via FILLOUT NATIF ou ZAPIER",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "legend-title",
+      "type": "text",
+      "x": 50,
+      "y": 1650,
+      "width": 200,
+      "height": 25,
+      "text": "LÉGENDE FAISABILITÉ",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e"
+    },
+    {
+      "id": "legend-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1680,
+      "width": 600,
+      "height": 130,
+      "strokeColor": "#868e96",
+      "backgroundColor": "#f8f9fa",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "legend-text",
+      "type": "text",
+      "x": 60,
+      "y": 1690,
+      "width": 580,
+      "height": 110,
+      "text": "✅ VERT = Natif Pipedrive (90-100%) - 12 automatisations\n⚠️ JAUNE = Workaround nécessaire (60-85%) - 5 automatisations\n🔌 BLEU = Intégration externe requise (Zapier/Fillout) - 2 automatisations\n\n⭐⭐ = Priorité 1 (TOP 5)    ⭐ = Priorité 2\n⬇ INPUT = Déclencheur    ⬆ OUTPUT = Actions exécutées",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "prereq-title",
+      "type": "text",
+      "x": 700,
+      "y": 1650,
+      "width": 300,
+      "height": 25,
+      "text": "PRÉREQUIS TECHNIQUES",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e"
+    },
+    {
+      "id": "prereq-box",
+      "type": "rectangle",
+      "x": 700,
+      "y": 1680,
+      "width": 590,
+      "height": 130,
+      "strokeColor": "#868e96",
+      "backgroundColor": "#f8f9fa",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "prereq-text",
+      "type": "text",
+      "x": 710,
+      "y": 1690,
+      "width": 570,
+      "height": 110,
+      "text": "PIPEDRIVE PLAN PROFESSIONAL REQUIS pour:\n   • Required Fields (A17)\n   • 60 automations actives (vs 30 sur Advanced)\n\nOUTILS COMPLÉMENTAIRES:\n   • Zapier (~$20-50/mois) pour A3 et backup A5/A9\n   • Fillout (gratuit-$29/mois) pour questionnaires",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    },
+
+    {
+      "id": "workaround-title",
+      "type": "text",
+      "x": 50,
+      "y": 1840,
+      "width": 400,
+      "height": 25,
+      "text": "WORKAROUND ALERTES STAGNATION (A5, A9)",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "strokeColor": "#c92a2a"
+    },
+    {
+      "id": "workaround-box",
+      "type": "rectangle",
+      "x": 50,
+      "y": 1870,
+      "width": 1240,
+      "height": 100,
+      "strokeColor": "#c92a2a",
+      "backgroundColor": "#ffe3e3",
+      "fillStyle": "solid",
+      "roundness": {"type": 3}
+    },
+    {
+      "id": "workaround-text",
+      "type": "text",
+      "x": 60,
+      "y": 1880,
+      "width": 1220,
+      "height": 80,
+      "text": "Le \"Rotting\" Pipedrive NE DÉCLENCHE PAS d'automation. Solution en 2 automations:\n\n1️⃣ Trigger: Deal entre dans l'étape → Action: Créer activité \"Suivi stagnation\" échéance J+7 (ou J+10 pour A9)\n2️⃣ Trigger: Activité due + titre contient \"Suivi stagnation\" → Action: Envoyer notification email au commercial",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "strokeColor": "#1e1e1e"
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  }
+}

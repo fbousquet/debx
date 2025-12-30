@@ -1,68 +1,77 @@
 # Roadmap Déploiement CRM Pipedrive - Debex-Médical
 
-## Vue d'ensemble
+> **MISE À JOUR 30/12/2024** : Pivot vers architecture CRM simplifié + Module Projets
+> Voir `docs/architecture-v2/` pour les nouvelles spécifications
 
-| Semaine | Focus | Objectif |
-|---------|-------|----------|
-| S1 | Fondations | Pipelines, champs, structure de base |
-| S2 | Quick Wins | Automatisations de relance et alertes |
-| S3 | Documents | Workflows validation pharma et commandes |
-| S4 | Continuité | Questionnaires et suivi satisfaction |
-| Buffer | Ajustements | Formation équipe, corrections, monitoring |
+## Vue d'ensemble v2
 
-## Prérequis
+| Phase | Focus | Objectif | Statut |
+|-------|-------|----------|--------|
+| **Phase 1** | Architecture | Module Projets + CRM simplifié | 🔄 En cours |
+| **Phase 2** | Infrastructure | Serveur, N8N, base de données | 📋 Planifié |
+| **Phase 3** | Automatisations | Workflows N8N, alertes | 📋 Planifié |
+| **Phase 4** | Déploiement | Formation, optimisation | 📋 Planifié |
 
-- [ ] Accès admin Pipedrive
-- [ ] Liste des 3 commerciaux avec emails
-- [ ] Email du directeur médical
-- [ ] Templates documents Word existants (dossier pharma, devis)
-- [ ] Compte Fillout configuré
-- [ ] Mapping territoires commerciaux défini
+## Prochaine étape : Atelier 2 janvier 2025
 
-## Dépendances critiques
+**Voir** : `docs/roadmap/atelier-2-janvier.md`
 
-```
-S1 Fondations
-    │
-    ├── Pipelines créés ──────────────────┐
-    │                                      │
-    ├── Champs personnalisés ─────────────┼──► S2-S4 Automatisations
-    │                                      │
-    └── Contacts importés avec rôles ─────┘
-```
+Objectifs de l'atelier :
+1. Configurer le Module Projets Pipedrive
+2. Créer le premier modèle de projet "Centre Hospitalier"
+3. Créer 5-6 projets pour les établissements en cours
+4. Valider les champs CRM réglementaires
 
-## Jalons clés
+## Changements clés vs v1
 
-| Jalon | Description | Semaine |
-|-------|-------------|---------|
-| M1 | Pipelines opérationnels | Fin S1 |
-| M2 | Premiers deals créés | S1-S2 |
-| M3 | Relances automatiques actives | Fin S2 |
-| M4 | Workflow pharma fonctionnel | Fin S3 |
-| M5 | Parcours complet testé end-to-end | Fin S4 |
-| M6 | Équipe formée et autonome | Buffer |
+| Avant (v1) | Après (v2) |
+|------------|------------|
+| Pipeline 1 : Qualification Médecin | **Module Projets** : 1 projet par établissement |
+| Pipeline 2 : Implémentation | Intégré dans Module Projets |
+| Deal = 1 médecin | Projet = 1 établissement |
+| Étapes commerciales dans CRM | Phases dans Module Projets |
+| CRM complet | **CRM simplifié** (réglementaire uniquement) |
 
-## Risques identifiés
+## Jalons clés v2
 
-| Risque | Impact | Mitigation |
-|--------|--------|------------|
-| Commerciaux ne remplissent pas les champs | Automatisations cassées | Champs obligatoires (A17) |
-| Doublons contacts | Confusion, mauvaise communication | Détection doublons (A16) |
-| Templates email mal formatés | Envois échoués | Tests avant mise en prod |
-| Intégration Fillout complexe | Retard S4 | Prévoir fallback manuel |
+| Jalon | Description | Date cible |
+|-------|-------------|------------|
+| M1 | Module Projets configuré | 2 janvier |
+| M2 | Premiers projets créés | 2 janvier |
+| M3 | Serveur opérationnel | 10 janvier |
+| M4 | N8N + automatisations | 15 janvier |
+| M5 | Interface soignants | 20 janvier |
+| M6 | Équipe formée v2 | Fin janvier |
 
-## Métriques de succès (qualitatives)
+## Infrastructure technique
 
-- [ ] Aucun deal "zombie" (sans activité >14j)
-- [ ] Tous les deals ont un propriétaire assigné
-- [ ] Chaque deal a les interlocuteurs clés identifiés
-- [ ] Transitions entre pipelines fluides
-- [ ] Commerciaux utilisent Pipedrive quotidiennement
+| Composant | Fournisseur | Coût | Statut |
+|-----------|-------------|------|--------|
+| CRM | Pipedrive | 171€/mois | ✅ Actif |
+| Module Projets | Pipedrive | Inclus | ✅ Activé |
+| Serveur | Hostinger | ~10€/mois | ✅ Commandé |
+| Automatisations | N8N (self-hosted) | 0€ | 📋 À installer |
+| Base de données | PostgreSQL | 0€ | 📋 À migrer |
+
+## Documentation
+
+- `docs/architecture-v2/overview.md` - Vue d'ensemble nouvelle architecture
+- `docs/architecture-v2/crm-reglementaire.md` - Spécifications CRM
+- `docs/architecture-v2/module-projets.md` - Spécifications Projets
+- `docs/architecture-v2/infrastructure.md` - Serveur et outils
+- `docs/roadmap/atelier-2-janvier.md` - Plan atelier configuration
 
 ## Contacts projet
 
-| Rôle | Responsabilité |
-|------|----------------|
-| DSI (vous) | Configuration, automatisations, formation |
-| Directeur médical Debex | Validation process, RDV médecins |
-| Commerciaux (3) | Utilisateurs finaux, feedback terrain |
+| Rôle | Nom | Responsabilité |
+|------|-----|----------------|
+| DSI | Fabien | Configuration, automatisations, infrastructure |
+| Commercial | Yann | Pilotage projets, feedback terrain |
+| Commercial | Ben | Opérationnel, réseau médical |
+| Commercial | William | Scientifique, suivi médical |
+
+---
+
+## Archive v1 (obsolète)
+
+Les anciennes spécifications sont conservées dans `docs/pipelines/` pour référence mais ne sont plus applicables.
